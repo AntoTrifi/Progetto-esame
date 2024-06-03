@@ -1,0 +1,34 @@
+Register e Login -- FATTO
+Html css per home:  codice qr per scansione live info vini
+codice qr per admin per validità biglietto -- FATTO
+
+Fare vista utente con "inventario biglietti" negozio scansione qr code
+Redirect su index una volta fatto login -- FATTO
+
+
+ACQUISTO BIGLIETTO:
+codice qr -- FATTO
+intestazione dei biglietti -- FATTO
+
+
+
+DATABASE BIGLIETTI
+
+rendere i qr/biglietti univoci e validi con flag di controllo -- FATTO
+id biglietti a quartetti (1111-1111-1111-1111) -- FATTO
+
+VERIFICARE CHE IL BIGLIETTO SCANSIONATO SIA ESISTENTE E VALIDO -- FATTO
+SISTEMARE BUG CHE SE CLICCHI I TUOI BIGLIETTI LI DUPLICA -- FATTO
+
+
+SISTEMARE INVENTARIO BIGLIETTI NON FUNZIONANTE--NON MOSTRA INFO SU HTML -- FATTO
+
+AGGIUNGERE VISTA DATABASE ADMIN PER SICUREZZA
+
+ID_Ticket	Num	ID_Utente	Data_Acquisto	Tipo_Biglietto	Validità		
+2105-2024-0002  1	1		00/00/0000	Intero/Ridotto	1
+	
+0000-0000-0000 1
+2105-2024-0001 2
+2105-2024-0002 3 
+2205-2024-0001 4

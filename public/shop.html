@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Biglietti</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Biglietti</a></li>
+            <li><a id="login-btn" href="login.html">Login</a></li>
+            <li><a id="register-btn" href="register.html">Register</a></li>
+            <li><a id="logout-btn" href="/logout">Logout</a><br></li>
+        </ul>
+    </nav>
+    
+
+    <div id="ticket-btns">
+        <a id="buy-tickets" href="">Acquista biglietti</a>
+        <a href="">|</a>
+        <a id="your-tickets" href="">I tuoi biglietti</a>
+    </div>
+
+    <!-- INIZIO ACQUISTO BIGLIETTI -->
+    <div id="tickets-forms">
+        <form id="buy-normal-ticket-form">
+            <img src="img/imgs/Catoio a festa.jpg" alt="">
+            <p>Biglietto giornaliero intero giro delle botti</p>
+            <p>Descrizione: il biglietto intero offre tutte e 15 le fermate</p>
+            <p>15€</p>
+            <button type="submit">Acquista</button>
+        </form>
+
+        <form id="buy-reduced-ticket-form">
+            <img src="img/imgs/Catoio a festa.jpg" alt="">
+            <p>Biglietto giornaliero ridotto giro delle botti</p>
+            <p>Descrizione: il biglietto intero offre 4 fermate</p>
+            <p>7€</p>
+            <button type="submit">Acquista</button>
+        </form>
+    </div>
+    <!-- FINE ACQUISTO BIGLIETTI -->
+
+
+    <!-- INIZIO INVENTARIO BIGLIETTI -->
+    <div id="inventory-tickets">
+        <h5>I tuoi biglietti</h5>
+        <!-- PARTE AUTOMATICA DI RICERCA BIGLIETTI E AGGIUNTA  -->
+        
+        
+    </div>
+    <!-- FINE INVENTARIO BIGLIETTI -->
+    <script src="shop.js"></script>
+    <style>
+        body {
+            margin: 0px;
+        }
+        nav {
+            background: #8b0000;
+            position: sticky;
+            top: 0px;
+            z-index: 1000; /* Assicurati che la barra di navigazione sia sopra gli altri contenuti */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);/* Opzionale: Aggiungi un'ombra per distinguere la barra di navigazione*/  
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10px;
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8em;
+            padding: 10px 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        #ticket-btns {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+        }
+
+        #ticket-btns a {
+            margin: 10px 10px;
+            text-decoration: none;
+            color: black;
+            font-weight:  bold;
+        }
+
+        #tickets-forms {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+        }
+        
+        #tickets-forms form {
+            background-color: #a00000;
+            margin: 20px 20px;
+            padding: 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #ffffff;
+            border-radius: 20px;
+            width: 300px;
+            height: 400px;
+        }
+
+        #tickets-forms img {
+            width: 100%;
+            overflow: hidden;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
+</body>
+</html>

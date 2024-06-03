@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"></script>
+  <title>Admin Management</title>
+</head>
+<body>
+    <a href="index.html">home</a>
+    <!-- <a href="login.html">login</a>
+    <a href="register.html">register</a> -->
+    <a href="/logout">Logout</a>
+  <h1>Admin Management Page</h1>
+  <p>Welcome, Admin!</p>
+  <style>
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #reader {
+        width: 600px;
+    }
+    #result {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+</style>
+
+<main>
+    <div id="reader"></div>
+    <div id="result"></div>
+</main>
+    
+  <script>
+      window.addEventListener("DOMContentLoaded", async e => {
+      const scanner = new Html5QrcodeScanner('reader', { 
+            // Scanner will be initialized in DOM inside element with id of 'reader'
+            qrbox: {
+                width: 250,
+                height: 250,
+            },  // Sets dimensions of scanning box (set relative to reader element width)
+            fps: 20, // Frames per second to attempt a scan
+        });
+
+
+        scanner.render(success, error);
+        // Starts scanner
+
+        async function success(result) {
+          
+            document.getElementById('result').innerHTML = `
+            <h2>Success!</h2>
+            <p><a href="${result}">${result}</a></p>
+            `;
+            // Prints result as a link inside result element
+
+            scanner.clear();
+            // Clears scanning instance
+
+            document.getElementById('reader').remove();
+            // Removes reader element from DOM since no longer needed
+
+        
+            const response2 = await fetch('/verifyticket', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ result })
+            });
+            
+            const data2 = await response2.json();
+            const info = data2.info
+            if(info)
+            {   
+                if(info.validità == 1)
+                {
+                    document.getElementById('result').innerHTML = `
+                    <h2>Biglietto trovato</h2>
+                    <p>Id biglietto: ${info.id_ticket}</p>
+                    <p>Nome: ${info.nome} Cognome: ${info.cognome}</p>
+                    `;
+                }
+                else
+                {
+                    document.getElementById('result').innerHTML = `
+                    <h2>Biglietto non valido</h2>
+                    `;
+                }
+            } else {
+                document.getElementById('result').innerHTML = `
+                <h2>Biglietto non valido</h2>
+            `;
+            }
+            
+            
+        }
+
+        function error(err) {
+            //console.error(err);
+            // Prints any errors to the console
+        }
+      })
+  </script>
+</body>
+</html>
